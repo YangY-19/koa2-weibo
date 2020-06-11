@@ -4,7 +4,10 @@
 */
 
 const Router = require('koa-router')
-const {addUser, select} = require('../../db/create')
+const addUser = require('../../db/create')
+const select = require('../../db/select')
+const update = require('../../db/update')
+const deleted = require("../../db/delete")
 const router = new Router({
     prefix: '/index'
 })
@@ -20,5 +23,20 @@ router.get('/s', async ctx => {
         liu
     }
 })
+
+router.get('/u', async ctx => {
+    const liu = await update()
+    ctx.body = {
+        liu
+    }
+})
+
+router.get('/d', async ctx => {
+    const liu = await deleted()
+    ctx.body = {
+        liu
+    }
+})
+
 
 module.exports = router

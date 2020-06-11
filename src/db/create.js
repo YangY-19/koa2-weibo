@@ -19,26 +19,4 @@ async function addUser() {
     })
 }
 
-
-async function select() {
-   const liu = await User.findOne({
-     attributes:['userName','nickName'], //查询的列
-     where: { //查询条件
-        nickName: 'YangY',
-        userName: 'dongyang.liu'
-     },
-     order: [ //排序方式
-        ['id', 'desc'] //根据id倒序
-     ]
-   })
-   return liu
-}
-
-// select `id`, `userName`, `nickName`, `passWord`, `createdAt`, `updatedAt` from `users` as `user` where `user`.`nickName` = 'YangY' limit 1;
-// select `id`, `userName`, `nickName` from `users` as `user` where `user`.`nickName` = 'YangY' and `user`.`userName` = 'dongyang.liu' limit 1;
-// select `id`, `userName`, `nickName` from `users` as `user` where `user`.`nickName` = 'YangY'  order by `user`.`id` desc limit 1; //排序
-
-module.exports = {
-    addUser,
-    select
-}
+module.exports = addUser

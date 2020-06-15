@@ -37,10 +37,12 @@ function get(key) {
             if (err) {
                 return reject(null)
             } else  {
-               
+               if(val === null) {
+                 return resolve(null)
+               }
                try {
                 return resolve(JSON.stringify(val))
-               } catch {
+               } catch(err) {
                 return resolve(val)
                }
             }

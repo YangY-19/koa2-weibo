@@ -1,48 +1,18 @@
-# koa2 项目
-## kuangJia分支是对koa2框架的创建, 目录整理
+### redis 
+###### 将redis和webServer拆分为两个单独服务
+###### 双方都是独立的,都是可扩建的
 
-## sequelize分支是对 sequelize Api的整理
-#### 创建数据
-######     User.create({
-######         nickName: 'YangY',
-######         userName: 'dongyang.liu',
-######         passWord: '123456'
-######     })
+#### 为何session适合用redis
+##### session 访问频繁,对性能要求极高
+#####  session 可考虑断电丢失数据的问题
+##### session 数据量不会太大
 
-#### 查询数据
-#####  findOne 查询一条数据
-#####  findAll 查询所有数据  
-#####  findAll({
-#####     limit: 2, 查询2条数据 
-#####     offset: 0  跳过多少条
-##### })   
-##### findAndCountAll 
+#### 为何网址数据不适合用redis
+##### 操作频率不是太高
+##### 断电数据不能丢失
+##### 数据量太大, 内存成本高
 
-######     User.findOne({
-######         where: { //查询条件
-######        nickName: 'YangY',
-######        userName: 'dongyang.liu'
-######     },
-######     order: [ //排序方式
-######        ['id', 'desc'] //根据id倒序
-######     ]
-######     })
-
-#### 更改数据
-##### Article.update({
-#####     title: '新的title'  
-##### }{
-#####    where: {
-#####        title: 'xxx'  //查询要改的那个条数据
-#####    }
-##### })
-
-#### 删除数据
-##### Article.destroy({
-#####    where: {
-#####        title: 'xxx'
-#####    }
-##### })
+### cookie 和 session
 
 
-### redis
+

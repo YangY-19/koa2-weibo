@@ -3,21 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon --inspect src/app.js"
+    "start": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon --inspect=9229 src/app.js"
   },
   "dependencies": {
     "debug": "~2.6.8",
     "ejs": "~2.5.5",
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-convert": "^1.2.0",
     "koa-json": "^2.0.2",
+    "koa-jwt": "^4.0.0",
     "koa-logger": "^3.0.0",
     "koa-onerror": "^3.1.0",
     "koa-router": "^7.2.1",
     "koa-static": "^3.0.0",
     "koa-views": "^6.0.2",
-    "require-directory": "^2.1.1"
+    "mysql2": "^2.1.0",
+    "require-directory": "^2.1.1",
+    "sequelize": "^5.21.13"
   },
   "devDependencies": {
     "babel-eslint": "7.1.1",

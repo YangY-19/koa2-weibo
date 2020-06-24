@@ -43,3 +43,34 @@
 #####        title: 'xxx'
 #####    }
 ##### })
+
+## jwt 
+```javascript
+app.js
+const jwtKoa = require('koa-jwt')
+app.use(jwtKoa({ //json web token
+    secret: 'YangY-1998'
+  }).unless({
+    path: [/^\/user\/login/]
+  }))
+
+添加token
+const jwt = require('jsonwebtoken')  
+用户密码输入正确以后
+let token = jwt.sign(userInfo.dataValues, 'YangY-1998', {expiresIn: '1h'})
+
+验证token
+const jwt = require('jsonwebtoken')
+const util = require('util')
+const verity = util.promisify(jwt.verify)
+let payload = await verity(token.split(' ')[1], 'YangY-1998')
+ctx.auth = {
+    userInfo: payload
+}
+```
+
+## 调试
+##### "scripts": {
+#####    "start": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon --inspect=9229 src/app.js"
+#####  },
+##### chrome浏览器里输入 chrome://inspect/#devices 就可以调试了

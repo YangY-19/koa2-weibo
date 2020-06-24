@@ -4,6 +4,7 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyParser = require('koa-bodyparser')
 const logger = require('koa-logger')
+const jwtKoa = require('koa-jwt')
 const config = require('../config')
 const InitRouter = require('./routes/initRouter')
 
@@ -17,6 +18,11 @@ app.use(bodyParser({
   .use(json())
   .use(logger())
   .use(require('koa-static')(__dirname + '/public')) //添加静态目录
+  .use(jwtKoa({ //json web token
+    secret: 'YangY-1998'
+  }).unless({
+    path: [/^\/user\/login/]
+  }))
 
   //路由注册集合
 InitRouter.initLoadRouters(app) 

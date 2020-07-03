@@ -73,4 +73,4 @@ ctx.auth = {
 ##### "scripts": {
 #####    "start": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon --inspect=9229 src/app.js"
 #####  },
-##### chrome浏览器里输入 chrome://inspect/#devices 就可以调试了
+##### chrome浏览器里输入 chrome://inspect/#devices  点击 Open dedicated DevTools for Node 就可以调试了

@@ -4,6 +4,7 @@
  */
 const jwt = require('jsonwebtoken')
 const util = require('util')
+const { JWT_SECRET } = require('../conf/password')
 const verity = util.promisify(jwt.verify)
 
  class Auth {
@@ -11,7 +12,7 @@ const verity = util.promisify(jwt.verify)
         return async (ctx, next) => {
             const token = ctx.header.authorization
             try {
-                let payload = await verity(token.split(' ')[1], 'YangY-1998')
+                let payload = await verity(token.split(' ')[1], JWT_SECRET)
                 ctx.auth = {
                     userInfo: payload
                  }

@@ -1,4 +1,4 @@
-const { User, Article } = require('./model/index')
+const { User, Article } = require('../index')
 
 async function update () {
   const update = await Article.update({

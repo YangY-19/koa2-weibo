@@ -1,4 +1,4 @@
-const { User, Article } = require('./model/index')
+const { User, Article } = require('../index')
 
 //查询
 async function select() {

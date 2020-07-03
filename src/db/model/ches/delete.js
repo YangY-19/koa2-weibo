@@ -1,4 +1,4 @@
-const { User, Article } = require('./model/index')
+const { User, Article } = require('../index')
 
 async function deleteData () {
   const deletes = await Article.destroy({

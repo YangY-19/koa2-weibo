@@ -9,8 +9,10 @@ seq.authenticate().then(() => {
 })
 
 // force: true 时, 如果数据库里有相同的表,则删除
-seq.sync({force: true}).then(() => {
+seq.sync({force: false}).then(() => {
     console.log('同步成功!')
     process.exit() //执行成功退出
 })
+
+// node src/db/sync.js
 

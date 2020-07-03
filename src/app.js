@@ -6,6 +6,7 @@ const bodyParser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const jwtKoa = require('koa-jwt')
 const config = require('../config')
+const { JWT_SECRET } = require('./conf/password')
 const InitRouter = require('./routes/initRouter')
 
 // 监听error 在页面显示
@@ -19,9 +20,9 @@ app.use(bodyParser({
   .use(logger())
   .use(require('koa-static')(__dirname + '/public')) //添加静态目录
   .use(jwtKoa({ //json web token
-    secret: 'YangY-1998'
+    secret: JWT_SECRET
   }).unless({
-    path: [/^\/user\/login/]
+    path: [/^\/weibo\/user\/login/]
   }))
 
   //路由注册集合
